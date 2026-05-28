@@ -8,9 +8,9 @@ from generated_protos import hello_pb2_grpc, hello_pb2
 
 class HelloService(hello_pb2_grpc.HelloServiceServicer):
     def SayHello(
-            self,
-            request: hello_pb2.HelloRequest,
-            context: grpc.ServicerContext
-    ):
-        logging.info("Received request, %s", MessageToJson(request))
+        self,
+        request: hello_pb2.HelloRequest,
+        context: grpc.ServicerContext,
+    ) -> hello_pb2.HelloResponse:
+        logging.info("Received request, %s", MessageToJson(request, indent=None))
         return hello_pb2.HelloResponse(message=f"Hello, {request.name}")
