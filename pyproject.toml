@@ -15,6 +15,7 @@ dependencies = [
     "opentelemetry-sdk>=1.41.1",
     "protobuf>=6.33.6",
     "pydantic>=2.13.4",
+    "redis>=8.0.0", 
     "setuptools>=82.0.1",
 ]
 

@@ -11,21 +11,20 @@ from grpc_services.hello_service import HelloService
 
 
 class RedisConnection:
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
-    def connect(self, host: str, port: int):
+    def connect(self, host: str, port: int) -> None:
         self.r = redis.Redis(host, port, db=0)
-        # redis.ConnectionPoPol()
 
-    def set(self, key: str, value: str):
+    def set(self, key: str, value: str) -> None:
         self.r.set(key, value)
 
     def get(self, key: str) -> str:
         return self.r.get(key)
 
 
-def redis_driver():
+def redis_driver() -> None:
     redis_connection = RedisConnection()
     redis_connection.connect(host="localhost", port=6379)
     for i in range(10):
@@ -34,7 +33,7 @@ def redis_driver():
     print(f"Value received from Redis: {value}")
 
 
-def serve():
+def serve() -> None:
     port = "50051"
     logging.info("Server is listening at port %s", port)
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

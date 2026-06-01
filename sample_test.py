@@ -6,7 +6,8 @@ Person = collections.namedtuple("Person", ["name", "age"])
 class Family:
     def __init__(self):
         self._persons = [
-            Person("Alice:" + str(name), age) for name, age in zip(range(10), range(10))
+            Person("Alice:" + str(name), age)
+            for name, age in zip(range(10), range(10))
         ]
 
     def __len__(self):

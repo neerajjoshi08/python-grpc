@@ -12,5 +12,7 @@ class HelloService(hello_pb2_grpc.HelloServiceServicer):
         request: hello_pb2.HelloRequest,
         context: grpc.ServicerContext,
     ) -> hello_pb2.HelloResponse:
-        logging.info("Received request, %s", MessageToJson(request, indent=None))
+        logging.info(
+            "Received request, %s", MessageToJson(request, indent=None)
+        )
         return hello_pb2.HelloResponse(message=f"Hello, {request.name}")
